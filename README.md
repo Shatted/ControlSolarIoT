@@ -77,3 +77,28 @@ Truco: clic derecho sobre el paquete `com.example.controlsolariot` → **New →
 - **La app crashea al abrir** → revisa Logcat (filtro: *Error*): casi siempre es un `findViewById` con ID que no existe en el layout.
 - **`activity_login not found`** → el XML quedó en otra carpeta; debe estar en `res/layout/`.
 - **Colores raros/tema distinto** → verifica que no borraste el `<application>` original del manifest.
+
+## 6. Subir a GitHub y entregar al AAI
+
+```bash
+cd ruta/a/ControlSolarIoT
+git init
+git add .
+git commit -m "App Control Solar IoT - Unidad 2"
+git remote add origin https://github.com/TU_USUARIO/ControlSolarIoT.git
+git branch -M main
+git push -u origin main
+```
+
+Crea primero el repositorio vacío en github.com (sin README auto-generado).
+
+**Bloc de notas (.txt) para el AAI** — contenido sugerido:
+
+```
+Nombre: [tu nombre]
+Materia: [código y nombre]
+Proyecto: Control Solar IoT (Unidad 2)
+Link de GitHub: https://github.com/TU_USUARIO/ControlSolarIoT
+```
+
+Súbelo al AAI **antes de que termine la clase del día de evaluación**.

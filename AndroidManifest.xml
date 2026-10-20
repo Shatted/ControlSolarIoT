@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ======================================================================
+     AndroidManifest.xml — Registro de TODAS las actividades de la app
+     ======================================================================
+     IMPORTANTE: este archivo se basa en el que genera el template
+     "Empty Views Activity". NO reemplaces el tuyo completo: solo AÑADE
+     los bloques <activity> nuevos dentro de <application> y verifica
+     que MainActivity quede como LAUNCHER.
+     Navegación: Inicio -> Login -> Descripción -> Sensores -> Control
+                 Sensores -> Historial (Detalle)
+     ====================================================================== -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ControlSolarIoT"
+        tools:targetApi="31">
+
+        <!-- 1) MainActivity: pantalla de INICIO (título + integrantes).
+             Es la actividad LAUNCHER: la primera que abre el sistema. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2) LoginActivity: control de acceso local (usuario/contraseña).
+             exported="false": solo puede abrirla esta aplicación. -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- 3) DescripcionActivity: descripción del proyecto y sensores -->
+        <activity
+            android:name=".DescripcionActivity"
+            android:exported="false"
+            android:parentActivityName=".LoginActivity" />
+
+        <!-- 4) SensoresActivity: información de los sensores (grilla 2x2) -->
+        <activity
+            android:name=".SensoresActivity"
+            android:exported="false"
+            android:parentActivityName=".DescripcionActivity" />
+
+        <!-- 5) ControlActivity: panel de control remoto del arco solar -->
+        <activity
+            android:name=".ControlActivity"
+            android:exported="false"
+            android:parentActivityName=".SensoresActivity" />
+
+        <!-- 6) DetalleActivity: historial de lecturas (botón Volver -> finish) -->
+        <activity
+            android:name=".DetalleActivity"
+            android:exported="false"
+            android:parentActivityName=".SensoresActivity" />
+
+    </application>
+</manifest>
